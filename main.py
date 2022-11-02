@@ -41,7 +41,7 @@ if __name__ == '__main__':
 
         print(f"Start random search")
         # assess parameters with 5-fold cross-validation
-        rs = RandomizedSearchCV(pipe, params, cv=5, n_iter=90, scoring="neg_mean_absolute_error", refit=True)
+        rs = RandomizedSearchCV(pipe, params, cv=5, n_iter=250, scoring="neg_mean_absolute_error", refit=True)
         rs.fit(X_train, y_train)
         results["rs"]["best_params"].append(rs.best_params_)
         results["rs"]["val_score"].append(rs.best_score_)
@@ -76,4 +76,4 @@ if __name__ == '__main__':
 
     plt.show()
 
-    fig.savefig("gs756_v_rs756-90.jpg")
+    fig.savefig("gs756_v_rs756-250.jpg")
